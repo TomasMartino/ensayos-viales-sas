@@ -1,0 +1,1160 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0C1013">
+<title>Ensayos Viales SAS — Ingeniería civil, laboratorio y alquiler de vehículos</title>
+<meta name="description" content="Ensayos de suelos, asfalto y hormigón, control de calidad de materiales y obras, laboratorios móviles, movimiento de suelos y pavimentos, y alquiler de vehículos para minería y construcción. Las Heras, Mendoza.">
+<meta property="og:title" content="Ensayos Viales SAS — Precisión técnica que respalda cada obra">
+<meta property="og:description" content="Laboratorio de suelos, asfalto y hormigones. Control de calidad vial. Movimiento de suelos y pavimentos. Alquiler de vehículos.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   ENSAYOS VIALES SAS — Sistema de diseño
+   Paleta: asfalto, hormigón, ámbar de seguridad, cobre de tierra
+   ============================================================ */
+
+:root{
+  --ink:#0C1013;
+  --ink-2:#131A20;
+  --ink-3:#1B242C;
+  --paper:#F7F5F0;
+  --paper-2:#EFEBE3;
+  --paper-3:#E4DFD4;
+  --amber:#FFB020;
+  --amber-deep:#E8940A;
+  --copper:#B4552D;
+  --text:#151A1E;
+  --muted:#5C6469;
+  --muted-2:#8A9298;
+  --on-dark:#F2EFE9;
+  --on-dark-muted:#9AA3AA;
+  --line:rgba(20,26,30,.12);
+  --line-dark:rgba(242,239,233,.14);
+
+  --wrap:min(1200px, 92vw);
+  --r-sm:4px;
+  --r:10px;
+  --r-lg:18px;
+
+  --shadow-sm:0 1px 2px rgba(12,16,19,.06), 0 4px 14px rgba(12,16,19,.05);
+  --shadow:0 2px 6px rgba(12,16,19,.07), 0 18px 50px -18px rgba(12,16,19,.28);
+
+  --font-display:"Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --font-body:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--text);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+img{max-width:100%; display:block}
+a{color:inherit}
+button{font:inherit; color:inherit}
+h1,h2,h3,h4{margin:0; text-wrap:balance}
+p{margin:0}
+ul{margin:0; padding:0; list-style:none}
+:focus-visible{outline:3px solid var(--amber); outline-offset:3px; border-radius:2px}
+
+::selection{background:var(--amber); color:var(--ink)}
+
+.wrap{width:var(--wrap); margin-inline:auto}
+.section{padding:clamp(64px, 9vw, 120px) 0}
+
+/* ---------- Tipografía display ---------- */
+.display{
+  font-family:var(--font-display);
+  font-weight:700;
+  line-height:.94;
+  letter-spacing:-.01em;
+  text-transform:none;
+}
+.kicker{
+  display:inline-flex; align-items:center; gap:.6rem;
+  font-size:.72rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--amber-deep);
+}
+.kicker::before{
+  content:""; width:26px; height:2px; background:currentColor; flex:none;
+}
+.kicker.on-dark{color:var(--amber)}
+.lede{font-size:clamp(1rem,.55vw + .9rem,1.12rem); color:var(--muted); max-width:60ch}
+
+/* ---------- Botones ---------- */
+.btn{
+  --bg:var(--ink); --fg:var(--paper);
+  display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+  padding:.92rem 1.5rem;
+  background:var(--bg); color:var(--fg);
+  border:1px solid transparent; border-radius:var(--r-sm);
+  font-size:.9rem; font-weight:600; letter-spacing:.01em;
+  text-decoration:none; cursor:pointer;
+  transition:transform .25s var(--ease), background .25s var(--ease), box-shadow .25s var(--ease), border-color .25s var(--ease);
+  will-change:transform;
+}
+.btn:hover{transform:translateY(-2px); box-shadow:var(--shadow)}
+.btn:active{transform:translateY(0)}
+.btn svg{width:18px; height:18px; flex:none}
+.btn--amber{--bg:var(--amber); --fg:var(--ink)}
+.btn--amber:hover{--bg:#FFC24D}
+.btn--ghost{--bg:transparent; --fg:var(--on-dark); border-color:var(--line-dark)}
+.btn--ghost:hover{--bg:rgba(242,239,233,.07); border-color:rgba(242,239,233,.34)}
+.btn--ghost-ink{--bg:transparent; --fg:var(--ink); border-color:var(--line)}
+.btn--ghost-ink:hover{--bg:rgba(12,16,19,.04); border-color:rgba(12,16,19,.3)}
+.btn--wa{--bg:#1FA855; --fg:#fff}
+.btn--wa:hover{--bg:#25BC61}
+
+/* ---------- Header ---------- */
+.site-header{
+  position:fixed; inset:0 0 auto 0; z-index:60;
+  transition:background .35s var(--ease), border-color .35s var(--ease), backdrop-filter .35s;
+  border-bottom:1px solid transparent;
+  padding:.9rem 0;
+}
+.site-header.is-scrolled{
+  background:rgba(12,16,19,.86);
+  backdrop-filter:blur(14px) saturate(140%);
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom-color:var(--line-dark);
+}
+.nav{display:flex; align-items:center; gap:2rem}
+.brand{display:flex; align-items:center; gap:.75rem; text-decoration:none; color:var(--on-dark); flex:none}
+.brand__mark{
+  width:40px; height:40px; flex:none;
+  display:grid; place-items:center;
+  background:var(--amber); color:var(--ink);
+  border-radius:3px;
+  font-family:var(--font-display); font-weight:700; font-size:1.05rem; letter-spacing:.02em;
+  position:relative; overflow:hidden;
+}
+.brand__mark::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:5px;
+  background:repeating-linear-gradient(90deg, var(--ink) 0 6px, transparent 6px 12px);
+  opacity:.5;
+}
+.brand__text{display:flex; flex-direction:column; line-height:1.05}
+.brand__name{
+  font-family:var(--font-display); font-weight:700; font-size:1.22rem;
+  letter-spacing:.04em; text-transform:uppercase;
+}
+.brand__sub{font-size:.6rem; letter-spacing:.28em; text-transform:uppercase; color:var(--on-dark-muted)}
+
+.nav__links{display:flex; align-items:center; gap:1.9rem; margin-left:auto}
+.nav__links a{
+  position:relative; color:var(--on-dark-muted); text-decoration:none;
+  font-size:.85rem; font-weight:500; letter-spacing:.01em;
+  padding:.35rem 0; transition:color .2s;
+}
+.nav__links a::after{
+  content:""; position:absolute; left:0; bottom:0; height:2px; width:0;
+  background:var(--amber); transition:width .3s var(--ease);
+}
+.nav__links a:hover,.nav__links a.is-active{color:var(--on-dark)}
+.nav__links a:hover::after,.nav__links a.is-active::after{width:100%}
+
+.nav__cta{display:flex; align-items:center; gap:.75rem; flex:none}
+
+.burger{
+  display:none; width:44px; height:44px;
+  background:transparent; border:1px solid var(--line-dark); border-radius:3px;
+  cursor:pointer; place-items:center; margin-left:auto;
+}
+.burger span{display:block; width:20px; height:2px; background:var(--on-dark); position:relative; transition:.3s}
+.burger span::before,.burger span::after{
+  content:""; position:absolute; left:0; width:20px; height:2px; background:var(--on-dark);
+  transition:.3s var(--ease);
+}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{top:0; transform:rotate(45deg)}
+.burger[aria-expanded="true"] span::after{top:0; transform:rotate(-45deg)}
+
+.mobile-panel{
+  position:fixed; inset:0 0 auto 0; top:0; z-index:55;
+  background:var(--ink); padding:6.5rem 0 2.5rem;
+  transform:translateY(-102%); transition:transform .45s var(--ease);
+  border-bottom:1px solid var(--line-dark);
+}
+.mobile-panel.is-open{transform:translateY(0)}
+.mobile-panel ul{display:grid; gap:.15rem; width:var(--wrap); margin-inline:auto}
+.mobile-panel a{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem .25rem; color:var(--on-dark); text-decoration:none;
+  font-family:var(--font-display); font-size:1.55rem; font-weight:600;
+  border-bottom:1px solid rgba(242,239,233,.08);
+}
+.mobile-panel a span{font-family:var(--font-body); font-size:.7rem; color:var(--amber); letter-spacing:.15em}
+.mobile-panel .btn{width:100%; margin-top:1.5rem}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative; background:var(--ink); color:var(--on-dark);
+  padding:clamp(120px,16vw,180px) 0 0;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:-2;
+  background:
+    radial-gradient(900px 520px at 78% -10%, rgba(255,176,32,.16), transparent 62%),
+    radial-gradient(620px 420px at 4% 100%, rgba(180,85,45,.18), transparent 65%),
+    linear-gradient(180deg, #0C1013 0%, #0F151A 62%, #0C1013 100%);
+}
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:-1; opacity:.5;
+  background-image:
+    linear-gradient(to right, rgba(242,239,233,.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(242,239,233,.045) 1px, transparent 1px);
+  background-size:84px 84px;
+  mask-image:radial-gradient(120% 90% at 50% 0%, #000 30%, transparent 78%);
+  -webkit-mask-image:radial-gradient(120% 90% at 50% 0%, #000 30%, transparent 78%);
+}
+.hero__grid{
+  display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);
+  gap:clamp(2rem,5vw,4.5rem); align-items:end;
+  padding-bottom:clamp(3rem,6vw,5rem);
+}
+.hero h1{
+  font-size:clamp(2.9rem, 7.2vw, 5.6rem);
+  margin:.9rem 0 0;
+  max-width:16ch;
+}
+.hero h1 em{
+  font-style:normal; color:var(--amber); position:relative; white-space:nowrap;
+}
+.hero h1 em::after{
+  content:""; position:absolute; left:0; right:0; bottom:.06em; height:.06em;
+  background:repeating-linear-gradient(90deg, var(--amber) 0 14px, transparent 14px 26px);
+  opacity:.55;
+}
+.hero__lead{
+  margin-top:1.5rem; max-width:52ch;
+  color:var(--on-dark-muted); font-size:clamp(.98rem,.4vw + .9rem,1.08rem);
+}
+.hero__actions{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:2.2rem}
+
+.hero__panel{
+  border:1px solid var(--line-dark);
+  background:linear-gradient(180deg, rgba(242,239,233,.05), rgba(242,239,233,.015));
+  border-radius:var(--r); padding:1.4rem; backdrop-filter:blur(4px);
+}
+.hero__panel-head{
+  display:flex; align-items:center; gap:.55rem;
+  font-size:.66rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--amber); padding-bottom:.9rem; border-bottom:1px solid var(--line-dark);
+}
+.hero__panel-head::before{
+  content:""; width:7px; height:7px; border-radius:50%; background:var(--amber);
+  box-shadow:0 0 0 4px rgba(255,176,32,.18);
+}
+.hero__panel dl{margin:0; display:grid; gap:.85rem; padding-top:1rem}
+.hero__panel div{display:grid; gap:.1rem}
+.hero__panel dt{font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--on-dark-muted)}
+.hero__panel dd{margin:0; font-size:.92rem; font-weight:600; color:var(--on-dark)}
+
+.hero__badges{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line-dark);
+}
+.hero__badge{
+  padding:1.5rem 1.4rem 1.7rem;
+  border-right:1px solid var(--line-dark);
+  display:flex; gap:.7rem; align-items:flex-start;
+  font-size:.82rem; line-height:1.45; color:var(--on-dark-muted);
+  transition:background .3s var(--ease), color .3s var(--ease);
+}
+.hero__badge:last-child{border-right:0}
+.hero__badge:hover{background:rgba(242,239,233,.035); color:var(--on-dark)}
+.hero__badge svg{width:19px; height:19px; flex:none; color:var(--amber); margin-top:.1rem}
+
+/* ---------- Franja de confianza ---------- */
+.trust{
+  background:var(--ink-2); color:var(--on-dark);
+  border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark);
+}
+.trust__row{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:1rem 2rem; padding:1.05rem 0;
+  font-size:.74rem; letter-spacing:.09em; text-transform:uppercase;
+  color:var(--on-dark-muted);
+}
+.trust__row strong{color:var(--on-dark); font-weight:600}
+.trust__sep{width:1px; height:16px; background:var(--line-dark)}
+.trust__item{display:flex; align-items:center; gap:.5rem}
+.trust__item svg{width:14px; height:14px; color:var(--amber)}
+
+/* ---------- Encabezado de sección ---------- */
+.section-head{
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.72fr);
+  gap:1.5rem 3rem; align-items:end; margin-bottom:clamp(2.5rem,5vw,4rem);
+}
+.section-head h2{
+  font-family:var(--font-display); font-weight:700;
+  font-size:clamp(2rem,4.6vw,3.4rem); line-height:.98; margin-top:.7rem;
+}
+.section-head p{color:var(--muted); font-size:.98rem; max-width:46ch; padding-bottom:.35rem}
+
+/* ---------- Servicios ---------- */
+.services{background:var(--paper)}
+.services__grid{
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.1rem;
+}
+.card{
+  position:relative; background:#fff; border:1px solid var(--line);
+  border-radius:var(--r); padding:clamp(1.5rem,2.4vw,2.1rem);
+  display:flex; flex-direction:column;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+  overflow:hidden;
+}
+.card::before{
+  content:""; position:absolute; inset:0 0 auto 0; height:3px;
+  background:linear-gradient(90deg,var(--amber),var(--copper));
+  transform:scaleX(0); transform-origin:left; transition:transform .4s var(--ease);
+}
+.card:hover{transform:translateY(-5px); box-shadow:var(--shadow); border-color:rgba(20,26,30,.2)}
+.card:hover::before{transform:scaleX(1)}
+
+.card__top{display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:1.3rem}
+.card__icon{
+  width:52px; height:52px; flex:none; display:grid; place-items:center;
+  background:var(--paper-2); color:var(--ink); border-radius:var(--r-sm);
+  transition:background .3s var(--ease), color .3s var(--ease);
+}
+.card:hover .card__icon{background:var(--amber); color:var(--ink)}
+.card__icon svg{width:25px; height:25px}
+.card__num{
+  font-family:var(--font-display); font-size:1.6rem; font-weight:600;
+  color:var(--paper-3); letter-spacing:.02em; line-height:1;
+}
+.card h3{
+  font-family:var(--font-display); font-weight:600;
+  font-size:clamp(1.35rem,2vw,1.65rem); line-height:1.05; margin-bottom:.65rem;
+}
+.card > p{color:var(--muted); font-size:.9rem; line-height:1.6; margin-bottom:1.3rem}
+.card__list{display:grid; gap:.5rem; margin-top:auto; padding-top:1.15rem; border-top:1px solid var(--line)}
+.card__list li{
+  position:relative; padding-left:1.35rem; font-size:.855rem; color:var(--text); line-height:1.5;
+}
+.card__list li::before{
+  content:""; position:absolute; left:0; top:.52em;
+  width:7px; height:7px; border-radius:1px;
+  background:var(--amber); transform:rotate(45deg);
+}
+
+/* ---------- Banda de campo ---------- */
+.field-band{
+  position:relative; background:var(--ink); color:var(--on-dark);
+  padding:clamp(3.5rem,7vw,5.5rem) 0; overflow:hidden; isolation:isolate;
+}
+.field-band::before{
+  content:""; position:absolute; inset:0; z-index:-2;
+  background:radial-gradient(700px 420px at 85% 20%, rgba(255,176,32,.15), transparent 60%);
+}
+.field-band::after{
+  content:""; position:absolute; left:0; right:0; top:50%; z-index:-1; height:2px;
+  background:repeating-linear-gradient(90deg, rgba(255,176,32,.55) 0 34px, transparent 34px 74px);
+  opacity:.35;
+}
+.field-band__grid{
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.85fr);
+  gap:clamp(2rem,5vw,4rem); align-items:center;
+}
+.field-band h2{
+  font-family:var(--font-display); font-weight:700;
+  font-size:clamp(2rem,4.4vw,3.2rem); line-height:.98; margin-top:.8rem;
+}
+.field-band p{color:var(--on-dark-muted); margin-top:1rem; max-width:48ch; font-size:.96rem}
+.chips{display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1.8rem}
+.chip{
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.5rem .85rem; border:1px solid var(--line-dark); border-radius:100px;
+  font-size:.76rem; letter-spacing:.03em; color:var(--on-dark);
+  background:rgba(242,239,233,.03);
+}
+.chip::before{content:""; width:5px; height:5px; border-radius:50%; background:var(--amber)}
+.field-band__cta{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2rem}
+
+/* ---------- Clientes ---------- */
+.clients{background:var(--paper-2)}
+.clients__intro{max-width:78ch; color:var(--muted); font-size:.97rem; line-height:1.75}
+.clients__intro strong{color:var(--text); font-weight:600}
+.wordmarks{
+  display:grid; grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:1px; background:var(--line); border:1px solid var(--line);
+  margin-top:clamp(2.2rem,4vw,3.2rem); border-radius:var(--r); overflow:hidden;
+}
+.wordmark{
+  background:var(--paper); min-height:92px;
+  display:grid; place-items:center; padding:1rem .6rem;
+  font-family:var(--font-display); font-weight:600; font-size:.98rem;
+  letter-spacing:.055em; text-transform:uppercase; text-align:center;
+  color:var(--muted); line-height:1.2;
+  transition:background .25s, color .25s;
+}
+.wordmark:hover{background:#fff; color:var(--ink)}
+.wordmark--wide{font-size:.86rem; letter-spacing:.03em}
+
+/* ---------- Contacto ---------- */
+.contact{background:var(--paper); position:relative; overflow:hidden}
+.contact__grid{
+  display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(2rem,5vw,4.5rem); align-items:start;
+}
+.contact h2{
+  font-family:var(--font-display); font-weight:700;
+  font-size:clamp(2rem,4.6vw,3.3rem); line-height:.98; margin-top:.7rem;
+}
+.contact__sub{color:var(--muted); margin-top:1rem; max-width:40ch; font-size:.96rem}
+
+.info-list{display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--r); overflow:hidden; margin-top:2.2rem}
+.info-row{
+  background:#fff; display:flex; align-items:flex-start; gap:1rem;
+  padding:1.1rem 1.2rem; text-decoration:none; color:inherit;
+  transition:background .25s;
+}
+a.info-row:hover{background:var(--paper-2)}
+.info-row__icon{
+  width:38px; height:38px; flex:none; display:grid; place-items:center;
+  background:var(--paper-2); color:var(--ink); border-radius:var(--r-sm);
+}
+.info-row__icon svg{width:17px; height:17px}
+.info-row__label{font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted-2); margin-bottom:.15rem}
+.info-row__value{font-size:.95rem; font-weight:600; line-height:1.35}
+.info-row__value small{display:block; font-weight:400; font-size:.8rem; color:var(--muted); margin-top:.15rem}
+
+.form-card{
+  background:#fff; border:1px solid var(--line); border-radius:var(--r);
+  padding:clamp(1.4rem,3vw,2.2rem); box-shadow:var(--shadow-sm);
+}
+.form-card h3{font-family:var(--font-display); font-size:1.5rem; font-weight:600; margin-bottom:.3rem}
+.form-card > p{font-size:.85rem; color:var(--muted); margin-bottom:1.6rem}
+.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:.9rem}
+.field{display:grid; gap:.35rem}
+.field--full{grid-column:1/-1}
+.field label{font-size:.68rem; letter-spacing:.11em; text-transform:uppercase; color:var(--muted); font-weight:600}
+.field input,.field select,.field textarea{
+  width:100%; padding:.78rem .85rem;
+  font:inherit; font-size:.9rem; color:var(--text);
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--r-sm);
+  transition:border-color .2s, background .2s, box-shadow .2s;
+}
+.field textarea{resize:vertical; min-height:104px}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none; border-color:var(--amber-deep); background:#fff;
+  box-shadow:0 0 0 3px rgba(255,176,32,.22);
+}
+.field select{appearance:none; cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235C6469' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right .75rem center; background-size:16px;
+  padding-right:2.2rem;
+}
+.form-card .btn{width:100%; margin-top:1.2rem}
+.form-note{font-size:.72rem; color:var(--muted-2); margin-top:.8rem; text-align:center}
+.form-status{font-size:.82rem; margin-top:.8rem; min-height:1.2em; color:var(--amber-deep); font-weight:600}
+
+/* ---------- Footer ---------- */
+.site-footer{background:var(--ink); color:var(--on-dark); padding:clamp(2.8rem,5vw,4rem) 0 2rem}
+.footer__top{
+  display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:2.5rem;
+  padding-bottom:2.6rem; border-bottom:1px solid var(--line-dark);
+}
+.footer__brand p{color:var(--on-dark-muted); font-size:.86rem; margin-top:1rem; max-width:36ch; line-height:1.7}
+.footer__col h4{
+  font-size:.66rem; letter-spacing:.17em; text-transform:uppercase;
+  color:var(--amber); margin-bottom:1rem; font-weight:600;
+}
+.footer__col ul{display:grid; gap:.6rem}
+.footer__col a{color:var(--on-dark-muted); text-decoration:none; font-size:.87rem; transition:color .2s}
+.footer__col a:hover{color:var(--on-dark)}
+.footer__bottom{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:.8rem 2rem; padding-top:1.6rem;
+  font-size:.74rem; color:var(--on-dark-muted); letter-spacing:.02em;
+}
+.footer__bottom span{display:inline-flex; align-items:center; gap:.45rem}
+
+/* ---------- WhatsApp flotante ---------- */
+.wa-float{
+  position:fixed; right:clamp(1rem,3vw,1.8rem); bottom:clamp(1rem,3vw,1.8rem); z-index:70;
+  display:flex; align-items:center; gap:.6rem;
+  padding:.85rem 1.15rem .85rem .95rem;
+  background:#1FA855; color:#fff; text-decoration:none;
+  border-radius:100px; font-size:.85rem; font-weight:600;
+  box-shadow:0 8px 30px rgba(31,168,85,.4);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), background .3s;
+}
+.wa-float:hover{transform:translateY(-3px); background:#25BC61; box-shadow:0 12px 38px rgba(31,168,85,.5)}
+.wa-float svg{width:22px; height:22px; flex:none}
+.wa-float span{white-space:nowrap}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease), transform .7s var(--ease)}
+.reveal.is-in{opacity:1; transform:none}
+.reveal-d1{transition-delay:.08s}
+.reveal-d2{transition-delay:.16s}
+.reveal-d3{transition-delay:.24s}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1024px){
+  .nav__links{display:none}
+  .burger{display:grid}
+  .nav__cta .btn{display:none}
+  .hero__grid{grid-template-columns:1fr; align-items:start}
+  .hero__panel{max-width:420px}
+  .hero__badges{grid-template-columns:repeat(2,1fr)}
+  .hero__badge:nth-child(2){border-right:0}
+  .hero__badge:nth-child(-n+2){border-bottom:1px solid var(--line-dark)}
+  .section-head{grid-template-columns:1fr}
+  .field-band__grid{grid-template-columns:1fr}
+  .wordmarks{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .contact__grid{grid-template-columns:1fr}
+  .footer__top{grid-template-columns:1fr 1fr}
+  .footer__brand{grid-column:1/-1}
+}
+@media (max-width:680px){
+  .services__grid{grid-template-columns:1fr}
+  .hero__badges{grid-template-columns:1fr}
+  .hero__badge{border-right:0; border-bottom:1px solid var(--line-dark)}
+  .hero__badge:last-child{border-bottom:0}
+  .wordmarks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .form-grid{grid-template-columns:1fr}
+  .footer__top{grid-template-columns:1fr}
+  .trust__sep{display:none}
+  .trust__row{justify-content:flex-start; gap:.7rem 1.4rem}
+  .wa-float{padding:.9rem; border-radius:50%}
+  .wa-float span{display:none}
+  .footer__bottom{flex-direction:column; align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important; transition-duration:.001ms !important; scroll-behavior:auto !important}
+  .reveal{opacity:1; transform:none}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="btn btn--amber" style="position:absolute;left:-9999px;top:.6rem;z-index:100" onfocus="this.style.left='.6rem'" onblur="this.style.left='-9999px'">Saltar al contenido</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Ensayos Viales SAS — Inicio">
+      <span class="brand__mark" aria-hidden="true">EV</span>
+      <span class="brand__text">
+        <span class="brand__name">Ensayos Viales</span>
+        <span class="brand__sub">SAS · Ingeniería</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#campo">En campo</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="nav__cta">
+      <a class="btn btn--amber" href="https://wa.me/5492614858235?text=Hola%2C%20quiero%20consultar%20por%20los%20servicios%20de%20Ensayos%20Viales%20SAS." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Consultar
+      </a>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Menú móvil -->
+<div class="mobile-panel" id="mobile-menu" aria-hidden="true">
+  <ul>
+    <li><a href="#servicios">Servicios <span>01</span></a></li>
+    <li><a href="#campo">En campo <span>02</span></a></li>
+    <li><a href="#clientes">Clientes <span>03</span></a></li>
+    <li><a href="#contacto">Contacto <span>04</span></a></li>
+  </ul>
+  <div class="wrap">
+    <a class="btn btn--amber" href="https://wa.me/5492614858235" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+</div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero__grid">
+        <div>
+          <span class="kicker on-dark">Ingeniería civil · Mendoza, Argentina</span>
+          <h1 class="display">Precisión técnica que respalda <em>cada obra</em></h1>
+          <p class="hero__lead">
+            Soluciones profesionales en ingeniería civil y alquiler de vehículos para empresas
+            mineras y de construcción. Empresa inscripta y habilitada por el Colegio Profesional
+            de Ingenieros y Geólogos (Mat. N.º 3759 EM).
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--amber" href="#contacto">
+              Solicitar presupuesto
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#servicios">Ver servicios</a>
+          </div>
+        </div>
+
+        <aside class="hero__panel" aria-label="Credenciales">
+          <div class="hero__panel-head">Respaldo profesional</div>
+          <dl>
+            <div>
+              <dt>Matrícula</dt>
+              <dd>3759 EM</dd>
+            </div>
+            <div>
+              <dt>Habilitación</dt>
+              <dd>Colegio Prof. de Ingenieros y Geólogos</dd>
+            </div>
+            <div>
+              <dt>Proveedor</dt>
+              <dd>YPF</dd>
+            </div>
+            <div>
+              <dt>Base operativa</dt>
+              <dd>Las Heras, Mendoza</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+
+      <ul class="hero__badges">
+        <li class="hero__badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6M10 3v6.5L5.5 18a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L14 9.5V3"/><path d="M7.5 14h9"/></svg>
+          Ensayos de suelos, asfalto y hormigón
+        </li>
+        <li class="hero__badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+          Control de calidad de materiales y obras
+        </li>
+        <li class="hero__badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+          Laboratorios móviles y ensayos en campo
+        </li>
+        <li class="hero__badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17V7a1 1 0 0 1 1-1h11v11"/><path d="M15 9h3.5L22 13v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+          Alquiler de vehículos y servicios logísticos
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= FRANJA DE CONFIANZA ================= -->
+  <div class="trust" aria-label="Credenciales y alcance">
+    <div class="wrap trust__row">
+      <span class="trust__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <strong>Proveedor de YPF</strong>
+      </span>
+      <span class="trust__sep" aria-hidden="true"></span>
+      <span class="trust__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <strong>Mat. N.º 3759 EM</strong>
+      </span>
+      <span class="trust__sep" aria-hidden="true"></span>
+      <span class="trust__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-5h6v5"/></svg>
+        <strong>Obras públicas y privadas</strong>
+      </span>
+      <span class="trust__sep" aria-hidden="true"></span>
+      <span class="trust__item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+        <strong>Vialidad Nacional y Provincial</strong>
+      </span>
+    </div>
+  </div>
+
+  <!-- ================= SERVICIOS ================= -->
+  <section class="section services" id="servicios">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Nuestros servicios</span>
+          <h2>Soluciones integrales en ingeniería civil</h2>
+        </div>
+        <p>
+          Con los más altos estándares de calidad y profesionalismo, desde el ensayo de
+          laboratorio hasta la ejecución del pavimento.
+        </p>
+      </div>
+
+      <div class="services__grid">
+
+        <article class="card reveal">
+          <div class="card__top">
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L5.5 18a2 2 0 0 0 1.8 3h9.4a2 2 0 0 0 1.8-3L14 9.5V3"/><path d="M7.5 14h9"/></svg>
+            </span>
+            <span class="card__num" aria-hidden="true">01</span>
+          </div>
+          <h3>Laboratorio de Suelos, Asfalto y Hormigones</h3>
+          <p>
+            Servicio integral de análisis geotécnico y ensayos de laboratorio. Determinación
+            de características físicas y mecánicas de materiales, incluyendo laboratorios
+            móviles para proyectos en terreno.
+          </p>
+          <ul class="card__list">
+            <li>Granulometría, Proctor y CBR</li>
+            <li>Límites de Atterberg</li>
+            <li>Dosificación y resistencia de hormigones</li>
+            <li>Contenido de asfalto</li>
+            <li>Ensayo SPT y DCP</li>
+            <li>Ensayo de permeabilidad del suelo</li>
+            <li>Alquiler de laboratorios móviles</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-d1">
+          <div class="card__top">
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <span class="card__num" aria-hidden="true">02</span>
+          </div>
+          <h3>Control de Calidad</h3>
+          <p>
+            Supervisión y control de calidad en obras civiles, asegurando el cumplimiento de
+            especificaciones técnicas en hormigón y asfalto.
+          </p>
+          <ul class="card__list">
+            <li>Ensayos de hormigón</li>
+            <li>Control de mezclas asfálticas</li>
+            <li>Verificación de compactación</li>
+            <li>Certificación de calidad</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-d2">
+          <div class="card__top">
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V9l4-3 4 3v11"/><path d="M12 20V6l4-3 4 3v14"/><path d="M7 13h1M15 10h1M15 14h1"/></svg>
+            </span>
+            <span class="card__num" aria-hidden="true">03</span>
+          </div>
+          <h3>Movimiento de suelos y construcción de pavimentos</h3>
+          <p>
+            Servicios integrales de movimiento de suelos y construcción de pavimentos, desde
+            la preparación del terreno hasta la ejecución final con maquinaria de última
+            generación.
+          </p>
+          <ul class="card__list">
+            <li>Excavaciones y rellenos</li>
+            <li>Estabilización de suelos</li>
+            <li>Pavimentos asfálticos</li>
+            <li>Pavimentos de hormigón</li>
+          </ul>
+        </article>
+
+        <article class="card reveal reveal-d3">
+          <div class="card__top">
+            <span class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17V7a1 1 0 0 1 1-1h11v11"/><path d="M15 9h3.5L22 13v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>
+            </span>
+            <span class="card__num" aria-hidden="true">04</span>
+          </div>
+          <h3>Alquiler de vehículos</h3>
+          <p>
+            Flota moderna de vehículos especializados para empresas mineras y proyectos de
+            construcción, con mantenimiento garantizado y seguro incluido.
+          </p>
+          <ul class="card__list">
+            <li>Camionetas, autos y utilitarios</li>
+            <li>Vehículos de carga</li>
+            <li>Equipos especializados</li>
+            <li>Camión con batea</li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BANDA DE CAMPO ================= -->
+  <section class="field-band" id="campo">
+    <div class="wrap field-band__grid">
+      <div>
+        <span class="kicker on-dark">Laboratorio móvil</span>
+        <h2 class="display">Ensayos en campo,<br>donde está la obra</h2>
+        <p>
+          Llevamos el laboratorio al terreno para proyectos que no pueden detenerse.
+          Ensayos geotécnicos y de materiales con equipamiento propio, en obra y en tiempo
+          de ejecución.
+        </p>
+        <div class="chips" aria-label="Ensayos en campo">
+          <span class="chip">Laboratorios móviles</span>
+          <span class="chip">SPT y DCP</span>
+          <span class="chip">Permeabilidad del suelo</span>
+          <span class="chip">Compactación</span>
+        </div>
+        <div class="field-band__cta">
+          <a class="btn btn--amber" href="#contacto">Coordinar una visita</a>
+          <a class="btn btn--ghost" href="#servicios">Ver todos los ensayos</a>
+        </div>
+      </div>
+      <div>
+        <div class="hero__panel" style="background:rgba(242,239,233,.03)">
+          <div class="hero__panel-head">Cobertura</div>
+          <dl>
+            <div>
+              <dt>Alcance</dt>
+              <dd>Mendoza y región</dd>
+            </div>
+            <div>
+              <dt>Obras</dt>
+              <dd>Vialidad, irrigación e infraestructura</dd>
+            </div>
+            <div>
+              <dt>Privadas</dt>
+              <dd>Loteos, barrios privados y urbanizaciones</dd>
+            </div>
+            <div>
+              <dt>Sectores</dt>
+              <dd>Minero, energético y construcción</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CLIENTES ================= -->
+  <section class="section clients" id="clientes">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Clientes</span>
+          <h2>Empresas que confían en nosotros</h2>
+        </div>
+      </div>
+
+      <p class="clients__intro">
+        Trabajamos con empresas líderes del sector minero, energético y de la construcción.
+        Además, somos <strong>proveedores de YPF</strong>. Trabajamos tanto en obras públicas
+        como privadas, participando en proyectos de alcance nacional y provincial, incluyendo
+        vialidad, irrigación e infraestructura. También desarrollamos trabajos en obras
+        privadas como loteos, barrios privados, movimientos de suelo y urbanizaciones.
+      </p>
+
+      <div class="wordmarks reveal">
+        <div class="wordmark">AESA</div>
+        <div class="wordmark wordmark--wide">Corporación del Sur</div>
+        <div class="wordmark wordmark--wide">Laugero Construcciones</div>
+        <div class="wordmark wordmark--wide">Cartellone Gas&amp;Oil</div>
+        <div class="wordmark wordmark--wide">Sudamericana SA</div>
+        <div class="wordmark">Construmin SRL</div>
+        <div class="wordmark wordmark--wide">Hyde Development</div>
+        <div class="wordmark">Tolcon SA</div>
+        <div class="wordmark">Dalvian SA</div>
+        <div class="wordmark">Irrigación</div>
+        <div class="wordmark">Aysam</div>
+        <div class="wordmark wordmark--wide">Vialidad Nacional y Provincial</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACTO ================= -->
+  <section class="section contact" id="contacto">
+    <div class="wrap">
+      <div class="contact__grid">
+
+        <div>
+          <span class="kicker">Contacto</span>
+          <h2>Estamos para ayudarte con tu proyecto</h2>
+          <p class="contact__sub">
+            Contanos qué necesitás y coordinamos una visita técnica o un presupuesto.
+          </p>
+
+          <div class="info-list">
+            <a class="info-row" href="tel:+5492614858235">
+              <span class="info-row__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.6a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>
+              </span>
+              <span>
+                <span class="info-row__label">Teléfono</span>
+                <span class="info-row__value">+54 9 261 485-8235</span>
+              </span>
+            </a>
+
+            <a class="info-row" href="mailto:ensayosviales18@gmail.com">
+              <span class="info-row__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+              </span>
+              <span>
+                <span class="info-row__label">Email</span>
+                <span class="info-row__value">ensayosviales18@gmail.com</span>
+              </span>
+            </a>
+
+            <a class="info-row" href="https://maps.google.com/?q=Espa%C3%B1a+1470,+Las+Heras,+Mendoza" target="_blank" rel="noopener">
+              <span class="info-row__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+              </span>
+              <span>
+                <span class="info-row__label">Dirección</span>
+                <span class="info-row__value">España 1470, Las Heras<small>Mendoza, Argentina</small></span>
+              </span>
+            </a>
+
+            <div class="info-row">
+              <span class="info-row__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+              </span>
+              <span>
+                <span class="info-row__label">Horario de atención</span>
+                <span class="info-row__value">Lunes a viernes: 8:00 – 17:30</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3>Consulta rápida</h3>
+          <p>Completá los datos y te respondemos por WhatsApp.</p>
+
+          <form id="contact-form" novalidate>
+            <div class="form-grid">
+              <div class="field">
+                <label for="f-nombre">Nombre</label>
+                <input id="f-nombre" name="nombre" type="text" autocomplete="name" required placeholder="Tu nombre">
+              </div>
+              <div class="field">
+                <label for="f-empresa">Empresa</label>
+                <input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder="Opcional">
+              </div>
+              <div class="field">
+                <label for="f-tel">Teléfono</label>
+                <input id="f-tel" name="telefono" type="tel" autocomplete="tel" placeholder="Opcional">
+              </div>
+              <div class="field">
+                <label for="f-servicio">Servicio</label>
+                <select id="f-servicio" name="servicio">
+                  <option>Laboratorio de suelos, asfalto y hormigones</option>
+                  <option>Control de calidad</option>
+                  <option>Movimiento de suelos y pavimentos</option>
+                  <option>Alquiler de vehículos</option>
+                  <option>Otro / consulta general</option>
+                </select>
+              </div>
+              <div class="field field--full">
+                <label for="f-mensaje">Mensaje</label>
+                <textarea id="f-mensaje" name="mensaje" required placeholder="Contanos sobre tu proyecto, ubicación y plazos."></textarea>
+              </div>
+            </div>
+
+            <button class="btn btn--wa" type="submit">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+              Enviar por WhatsApp
+            </button>
+            <p class="form-note">Se abre WhatsApp con el mensaje ya redactado. También podés escribirnos directamente.</p>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="#top" aria-label="Ensayos Viales SAS — Inicio">
+          <span class="brand__mark" aria-hidden="true">EV</span>
+          <span class="brand__text">
+            <span class="brand__name">Ensayos Viales</span>
+            <span class="brand__sub">SAS · Ingeniería</span>
+          </span>
+        </a>
+        <p>
+          Ingeniería civil, laboratorio de suelos, asfalto y hormigones, control de calidad
+          y alquiler de vehículos. Las Heras, Mendoza.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Laboratorio de materiales</a></li>
+          <li><a href="#servicios">Control de calidad</a></li>
+          <li><a href="#servicios">Suelos y pavimentos</a></li>
+          <li><a href="#servicios">Alquiler de vehículos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+5492614858235">+54 9 261 485-8235</a></li>
+          <li><a href="mailto:ensayosviales18@gmail.com">ensayosviales18@gmail.com</a></li>
+          <li><a href="https://maps.google.com/?q=Espa%C3%B1a+1470,+Las+Heras,+Mendoza" target="_blank" rel="noopener">España 1470, Las Heras</a></li>
+          <li><a href="https://wa.me/5492614858235" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span id="year">2026</span> Ensayos Viales SAS. Todos los derechos reservados.</span>
+      <span>Mat. N.º 3759 EM · Colegio Profesional de Ingenieros y Geólogos</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a class="wa-float" href="https://wa.me/5492614858235?text=Hola%2C%20quiero%20consultar%20por%20los%20servicios%20de%20Ensayos%20Viales%20SAS." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.7-1.6-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+  <span>WhatsApp</span>
+</a>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Ensayos Viales SAS",
+  "description":"Ingeniería civil, laboratorio de suelos, asfalto y hormigones, control de calidad de materiales y obras, movimiento de suelos y pavimentos, y alquiler de vehículos para minería y construcción.",
+  "telephone":"+5492614858235",
+  "email":"ensayosviales18@gmail.com",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"España 1470",
+    "addressLocality":"Las Heras",
+    "addressRegion":"Mendoza",
+    "addressCountry":"AR"
+  },
+  "areaServed":"Mendoza, Argentina",
+  "openingHours":"Mo-Fr 08:00-17:30"
+}
+</script>
+
+<script>
+(function(){
+  'use strict';
+
+  /* Header: fondo al hacer scroll */
+  var header = document.getElementById('header');
+  var onScroll = function(){
+    header.classList.toggle('is-scrolled', window.scrollY > 24);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* Menú móvil */
+  var burger = document.getElementById('burger');
+  var panel  = document.getElementById('mobile-menu');
+
+  function setMenu(open){
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    panel.classList.toggle('is-open', open);
+    panel.setAttribute('aria-hidden', String(!open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function(){
+    setMenu(burger.getAttribute('aria-expanded') !== 'true');
+  });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ setMenu(false); });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') setMenu(false);
+  });
+
+  /* Reveal on scroll */
+  var items = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add('is-in'); });
+  }
+
+  /* Nav activa según sección visible */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__links a'));
+  var sections = links.map(function(a){
+    return document.querySelector(a.getAttribute('href'));
+  }).filter(Boolean);
+
+  if('IntersectionObserver' in window && sections.length){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting) return;
+        links.forEach(function(l){ l.classList.remove('is-active'); });
+        var active = links.filter(function(l){
+          return l.getAttribute('href') === '#' + entry.target.id;
+        })[0];
+        if(active) active.classList.add('is-active');
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    sections.forEach(function(s){ spy.observe(s); });
+  }
+
+  /* Año del footer */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* Formulario -> WhatsApp */
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('form-status');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var nombre  = form.nombre.value.trim();
+    var empresa = form.empresa.value.trim();
+    var tel     = form.telefono.value.trim();
+    var servicio= form.servicio.value;
+    var mensaje = form.mensaje.value.trim();
+
+    if(!nombre || !mensaje){
+      status.textContent = 'Completá nombre y mensaje para continuar.';
+      (!nombre ? form.nombre : form.mensaje).focus();
+      return;
+    }
+
+    var texto = 'Hola, soy ' + nombre + '.';
+    if(empresa) texto += ' Empresa: ' + empresa + '.';
+    if(tel)     texto += ' Teléfono: ' + tel + '.';
+    texto += '\nServicio: ' + servicio + '.';
+    texto += '\n\n' + mensaje;
+
+    status.textContent = 'Abriendo WhatsApp…';
+    window.open('https://wa.me/5492614858235?text=' + encodeURIComponent(texto), '_blank', 'noopener');
+  });
+})();
+</script>
+
+</body>
+</html>
